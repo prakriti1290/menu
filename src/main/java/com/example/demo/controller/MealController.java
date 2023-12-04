@@ -15,7 +15,7 @@ public class MealController {
     private MealRepository mealRepository;
 
     @GetMapping("/{id}")
-    public Meal getMeal(@PathVariable Long id) {
+    public Meal getMeal(@PathVariable String id) {
         return mealRepository.findById(id).orElse(null);
     }
 
