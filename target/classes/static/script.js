@@ -1,5 +1,5 @@
 document.getElementById("breakfastButton").addEventListener("click", function() {
-    fetch("localhost:8090/meals/breakfast")
+    fetch("/meals/breakfast")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");

@@ -1,18 +1,29 @@
 package com.example.demo.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(value = "meal")
 public class Meal {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+
+    @Id
+    private String id;
+    private String name;
+    private String description;
+    private String type; // Identifier for breakfast or dinner
+    private String imageUrl; // URL for the meal's image
+    private String price;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     @Override
     public String toString() {
         return "Meal{" +
@@ -25,11 +36,7 @@ public class Meal {
                 '}';
     }
 
-    private String name;
-    private String description;
-    private String type; // Identifier for breakfast or dinner
-    private String imageUrl; // URL for the meal's image
-    private String price;
+
 
 
     public String getPrice() {
@@ -59,13 +66,7 @@ public class Meal {
     }
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
